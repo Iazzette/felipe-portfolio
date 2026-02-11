@@ -1,0 +1,272 @@
+/* =========================
+   TEMA PRETO + ROXO
+========================= */
+:root{
+  --bg: #0b0b10;
+  --panel: rgba(18,18,26,0.85);
+  --panel-strong: rgba(18,18,26,0.95);
+  --text: #eaeaf2;
+  --muted: #b6b6c9;
+  --border: rgba(255,255,255,0.08);
+  --purple: #8b5cf6;
+  --purple-2: #a78bfa;
+  --shadow: 0 18px 50px rgba(0,0,0,0.55);
+}
+
+/* =========================
+   RESET / BASE
+========================= */
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(139,92,246,0.22), transparent 60%),
+    radial-gradient(900px 500px at 80% 20%, rgba(167,139,250,0.16), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+/* Links */
+a{
+  color: var(--purple-2);
+  text-decoration: none;
+}
+a:hover{ text-decoration: underline; }
+
+/* Container usado no header e no main */
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER / HERO (foto + infos)
+========================= */
+header.container{
+  padding: 34px 0 18px;
+}
+
+.hero{
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 18px;
+  align-items: center;
+
+  background: linear-gradient(180deg, rgba(139,92,246,0.14), rgba(18,18,26,0.92));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.avatar{
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid rgba(139,92,246,0.55);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+}
+
+.hero h1{
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.subtitle{
+  margin: 6px 0 10px;
+  color: var(--muted);
+}
+
+/* bloco telefone/email/linkedin */
+.contacts{
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.contacts strong{ color: var(--text); }
+
+/* badges (Java, Python, etc) */
+.badge-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.badge{
+  font-size: 12px;
+  padding: 6px 10px;
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 999px;
+  color: var(--text);
+}
+
+/* =========================
+   NAV
+========================= */
+header nav{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+header nav a{
+  font-size: 13px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+header nav a:hover{
+  background: rgba(139,92,246,0.12);
+  border-color: rgba(139,92,246,0.28);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* =========================
+   MAIN / SECTIONS
+========================= */
+main.container{
+  padding: 18px 0 40px;
+}
+
+/* cada section do currículo */
+section{
+  margin-top: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+section h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+section h3{
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--purple-2);
+  letter-spacing: 0.2px;
+}
+
+/* texto padrão */
+p{
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+/* listas */
+ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+
+li{
+  margin: 6px 0;
+}
+
+/* =========================
+   CARDS (Conhecimentos Técnicos)
+========================= */
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(139,92,246,0.10), var(--panel-strong));
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.65);
+}
+
+.card ul{
+  padding-left: 18px;
+}
+
+.card li{
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* =========================
+   ANIMAÇÃO AO ROLAR (reveal)
+========================= */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+  padding: 18px 0 26px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 720px){
+  .hero{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .avatar{
+    margin: 0 auto;
+  }
+
+  /* melhora leitura no mobile */
+  .contacts{
+    font-size: 13px;
+  }
+
+  header nav{
+    justify-content: center;
+  }
+}
