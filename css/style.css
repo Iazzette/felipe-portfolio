@@ -155,13 +155,13 @@ section{
 }
 
 section h2{
-  margin: 0 0 10px;
-  font-size: 18px;
+  margin: 0 0 14px;
+  font-size: 22px;
 }
 
 section h3{
   margin: 0 0 8px;
-  font-size: 14px;
+  font-size: 17px;
   color: var(--purple-2);
   letter-spacing: 0.2px;
 }
@@ -188,7 +188,7 @@ li{
 ========================= */
 .cards-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: 16px;
   margin-top: 14px;
 }
@@ -212,7 +212,7 @@ li{
 }
 
 .card li{
-  font-size: 14px;
+  font-size: 15px;
   margin: 6px 0;
 }
 
@@ -269,4 +269,34 @@ footer{
   header nav{
     justify-content: center;
   }
+}
+/* Conteúdo atualizado: experiências, projetos e formação. */
+section { scroll-margin-top: 20px; }
+.hero > div, .card { min-width: 0; }
+.contacts a { overflow-wrap: anywhere; }
+.eyebrow { color: var(--purple-2); font-size: 14px; margin-bottom: 8px; }
+.location, .section-intro, .entry-meta { color: var(--muted); }
+.location { font-size: 14px; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+.profile-links a { padding: 6px 12px; border: 1px solid rgba(139,92,246,.35); border-radius: 8px; }
+.profile-links a:hover { background: rgba(139,92,246,.14); }
+.entry-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+.entry-role { margin-bottom: 6px; }
+.entry-meta { font-size: 14px; margin-bottom: 12px; }
+.experience-entry + .experience-entry, .education-entry + .education-entry {
+  margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border);
+}
+.featured-project { grid-column: 1 / -1; border-color: rgba(167,139,250,.5); }
+.project-type { color: var(--purple-2); font-size: 14px; margin-bottom: 4px; }
+.projects-grid .card p { overflow-wrap: anywhere; }
+.projects-grid .badge-row { margin-top: 14px; }
+a:focus-visible { outline: 2px solid var(--purple-2); outline-offset: 4px; }
+.skip-link { position: absolute; top: 8px; left: 8px; padding: 10px 14px; background: var(--bg); transform: translateY(-160%); z-index: 10; }
+.skip-link:focus { transform: translateY(0); }
+@media (max-width: 720px) {
+  .profile-links, .hero .badge-row { justify-content: center; }
+  .hero h1 { font-size: clamp(23px, 6vw, 28px); overflow-wrap: anywhere; }
+  section { padding: 18px 14px; }
+  section h2 { font-size: 21px; }
+  .entry-header { display: block; }
 }
